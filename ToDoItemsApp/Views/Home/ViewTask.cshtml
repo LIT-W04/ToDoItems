@@ -1,0 +1,17 @@
+﻿@model ToDoItemsApp.Models.ViewItemViewModel
+    
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 well">
+        <h2>@Model.ToDoItem.Title</h2>
+        <h2>@Model.ToDoItem.Description</h2>
+        <h2>@Model.ToDoItem.DueDate.ToLongDateString()</h2>
+        <h2>@Model.ToDoItem.CategoryName</h2>
+        @if (!Model.ToDoItem.Completed)
+        {
+            <form method="post" action="/home/setcompleted">
+                <input type="hidden" name="id" value="@Model.ToDoItem.Id"/>
+                <button class="btn btn-danger">Mark as completed</button>
+            </form>
+        }
+    </div>
+</div>
